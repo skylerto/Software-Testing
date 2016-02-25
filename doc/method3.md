@@ -38,13 +38,13 @@ As the input is a `String` and the output is an `int`, we can carefully consider
 
 Using the following strategy we attempt to cover some of the missing gaps, and remove some of the redundancy from the *Boundary Value Tests*. The following diagrams present this testing strategy, each of the possible Number inputs are on the Y axis, while each of the possible Constant inputs are on the X axis. Each of the filled in boxes presents valid input, while the X represents a corresponding test case. See Appendix A for the JUnit test cases for this method.
 
-![Weak Normal Test Cases](assets/weak-normal.png)  
+![Weak Normal Test Cases](../assets/weak-normal.png)  
 
-![Strong Normal Test Cases](assets/strong-normal.png)  
+![Strong Normal Test Cases](../assets/strong-normal.png)  
 
-![Weak Robust Test Cases](assets/weak-robust.png)  
+![Weak Robust Test Cases](../assets/weak-robust.png)  
 
-![Strong Robust Test Cases](assets/strong-robust.png)
+![Strong Robust Test Cases](../assets/strong-robust.png)
 
 \newpage
 
@@ -52,7 +52,7 @@ Using the following strategy we attempt to cover some of the missing gaps, and r
 
 In the following decision table we show the desired behaviour of the system; under the condition what the desired action should be. See Appendix A for the JUnit test cases for this method.
 
-![Decision Table](assets/decision-table.png)
+![Decision Table](../assets/decision-table.png)
 
 # Appendix A  
 
