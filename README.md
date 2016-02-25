@@ -3,13 +3,13 @@
 
 This repository is for EECS 4313 Unit Testing assignment 2, Black-box Testing with JUnit.
 
-[Assignment specification](CSE4313_Assignment2Description.pdf).
+[Assignment specification](doc/CSE4313_Assignment2Description.pdf).
 
 ## Members
 
-[Siraj Rauff](https://www.github.com/sirajrauff)
-[Drew Noel](https://www.github.com/drewmnoel)
-[Skyler Layne](https://www.github.com/skylerto)
+  - [Siraj Rauff](https://www.github.com/sirajrauff)  
+  - [Drew Noel](https://www.github.com/drewmnoel)  
+  - [Skyler Layne](https://www.github.com/skylerto)  
 
 
 ## Contribute
