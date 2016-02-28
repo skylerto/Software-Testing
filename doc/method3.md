@@ -54,6 +54,35 @@ In the following decision table we show the desired behaviour of the system; und
 
 ![Decision Table](../assets/decision-table.png)
 
+## Bug Report
+
+**Title**: Unchecked NumberFormatException.  
+**Reported by**: Skyler Layne.  
+**Date Reported**: February 28, 2016.  
+**Program name**: BORG Calendar.  
+**Configuration**: OS X 10.11.3, Java version 1.8.0_60, Runtime build 1.8.0_60-b27.  
+**Report type**: Bug.  
+**Reproducibility**: Yes – consistently.  
+**Priority**: Low.  
+**Problem Summary**:  
+
+Unit testing surfaced an uncaught error in String to Integer conversion.  
+
+When setting a repeat event, if the String code passed in takes space, or if it is not an integer, then an uncaught/unhandled error occurs `NumberFormatException` error occurs.  
+
+Example inputs:  
+
+``` java
+Repeat.getNValue("nweeks, ");
+Repeat.getNValue("nweeks, 14");
+Repeat.getNValue("nweeks, FOO");
+Repeat.getNValue("nweeks,FOO");
+```
+
+**New or old bug**: New.  
+
+
+
 # Appendix A  
 
 Using the outlined testing strategies above we have developed the following test cases for the method under test:
@@ -133,6 +162,7 @@ public void testGetNValueECT() {
   constant = Repeat.NDAYS;
   assertEquals(Repeat.getNValue(constant + "," + number), 5);
 
+>>>>>>> meth-gnv
   // B. NWEEKS, Numeric String
   number = "5";
   constant = Repeat.NWEEKS;
