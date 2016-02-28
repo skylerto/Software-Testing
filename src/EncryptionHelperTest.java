@@ -8,6 +8,11 @@ import junit.framework.TestCase;
 @Suite.SuiteClasses({ ValidKeystoreWorstCaseBVTest.class, InvalidKeystoreWorstCaseBVTest.class })
 @RunWith(Suite.class)
 
+/**
+ * Test Suite in order to trigger the two seperate test classes for EncryptionHelper
+ *
+ * @author Drew Noel - cse23217 - 212513784
+ */
 public class EncryptionHelperTest extends TestCase {
 
 	/** Hold the store name */
