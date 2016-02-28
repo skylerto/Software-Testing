@@ -162,7 +162,6 @@ public void testGetNValueECT() {
   constant = Repeat.NDAYS;
   assertEquals(Repeat.getNValue(constant + "," + number), 5);
 
->>>>>>> meth-gnv
   // B. NWEEKS, Numeric String
   number = "5";
   constant = Repeat.NWEEKS;
