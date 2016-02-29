@@ -1,3 +1,4 @@
+# Appendix A
 ## Bug Report #1
 
 **Title**: Integer Overflow in `calculateRepeatNumber`.  
@@ -42,7 +43,7 @@ assertEquals(greaterThan(Integer.MAX_VALUE), Repeat.calculateRepeatNumber(testCa
 **Reproducibility**: Yes – consistently.  
 **Priority**: Low.  
 **Problem Summary**:  
-`calculateRepeatNumber` in `Repeat.java` does not check if the `Appointment` contains a valid start date before using it.
+`calculateRepeatNumber` in `Repeat.java` does not check if the `Appointment` contains a valid start date before using it.  
 **Problem Description**:  
 `calculateRepeatNumber` utilizes `Appointment` parameter to get the start date and repeat frequency of an event. It does not, however, check if either of these exist. A `null` frequency is correctly handled in the creation of a repeating event, however a `null` start date will cause a `NullPointerException`.
 
