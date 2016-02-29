@@ -20,29 +20,29 @@ Using the testing techniques which we have discussed in class we have devised th
 
 As the input is a `String` and the output is an `int`, we can carefully consider the edge cases given that the input is of the form `Constant + "," + Number` (See Appendix A for the JUnit test cases for this strategy):
 
-**Constant**:
-  - The empty `String`.
-  - A very long `String`.
-  - A desirable `String`.
-  - Without a comma separator.
+**Constant**:  
+  - The empty `String`.  
+  - A very long `String`.  
+  - A desirable `String`.  
+  - Without a comma separator.  
 
-**Number**:
-  - The empty `String`.
-  - A non-numeric `String`.
-  - A very large negative `int` and `float`.
-  - Zero.
-  - A very large positive `int` and `float`.
+**Number**:  
+  - The empty `String`.  
+  - A non-numeric `String`.  
+  - A very large negative `int` and `float`.  
+  - Zero.  
+  - A very large positive `int` and `float`.  
 
 
 ## Equivalence Class Testing
 
 Using the following strategy we attempt to cover some of the missing gaps, and remove some of the redundancy from the *Boundary Value Tests*. The following diagrams present this testing strategy, each of the possible Number inputs are on the Y axis, while each of the possible Constant inputs are on the X axis. Each of the filled in boxes presents valid input, while the X represents a corresponding test case (See Appendix A for the JUnit test cases for this strategy).
 
-![Weak Normal Test Cases](../assets/weak-normal.png)
+![Weak Normal Test Cases](../assets/weak-normal.png)  
 
-![Strong Normal Test Cases](../assets/strong-normal.png)
+![Strong Normal Test Cases](../assets/strong-normal.png)  
 
-![Weak Robust Test Cases](../assets/weak-robust.png)
+![Weak Robust Test Cases](../assets/weak-robust.png)  
 
 ![Strong Robust Test Cases](../assets/strong-robust.png)
 
@@ -56,21 +56,21 @@ In the following decision table we show the desired behaviour of the system; und
 
 ## Bug Report
 
-**Title**: Unchecked NumberFormatException.
-**Reported by**: Skyler Layne.
-**Date Reported**: February 28, 2016.
-**Program name**: BORG Calendar.
-**Configuration**: OS X 10.11.3, Java version 1.8.0_60, Runtime build 1.8.0_60-b27.
-**Report type**: Bug.
-**Reproducibility**: Yes – consistently.
-**Priority**: Low.
-**Problem Summary**:
+**Title**: Unchecked NumberFormatException.  
+**Reported by**: Skyler Layne.  
+**Date Reported**: February 28, 2016.  
+**Program name**: BORG Calendar.  
+**Configuration**: OS X 10.11.3, Java version 1.8.0_60, Runtime build 1.8.0_60-b27.  
+**Report type**: Bug.  
+**Reproducibility**: Yes – consistently.  
+**Priority**: Low.  
+**Problem Summary**:  
 
-Unit testing surfaced an uncaught error in String to Integer conversion.
+Unit testing surfaced an uncaught error in String to Integer conversion.  
 
-When setting a repeat event, if the String code passed in takes space, or if it is not an integer, then an uncaught/unhandled error occurs `NumberFormatException` error occurs.
+When setting a repeat event, if the String code passed in takes space, or if it is not an integer, then an uncaught/unhandled error occurs `NumberFormatException` error occurs.  
 
-Example inputs:
+Example inputs:  
 
 ``` java
 Repeat.getNValue("nweeks, ");
@@ -79,11 +79,11 @@ Repeat.getNValue("nweeks, FOO");
 Repeat.getNValue("nweeks,FOO");
 ```
 
-**New or old bug**: New.
+**New or old bug**: New.  
 
 
 
-# Appendix A
+# Appendix A  
 
 Using the outlined testing strategies above we have developed the following test cases for the method under test:
 

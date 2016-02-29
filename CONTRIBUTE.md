@@ -1,6 +1,6 @@
 # Contribute
 
-Branch per section, merge development with master once we are ready to submit.
+Branch per section, merge development with master once we are ready to submit.  
 
 ## Project Structure
 
