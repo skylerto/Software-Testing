@@ -57,14 +57,14 @@ assertEquals(0, Repeat.calculateRepeatNumber(testCal, testAppt));
 
 ## Bug Report #3
 
-**Title**: Unchecked NumberFormatException.
-**Reported by**: Skyler Layne.
-**Date Reported**: February 28, 2016.
-**Program name**: BORG Calendar.
-**Configuration**: OS X 10.11.3, Java version 1.8.0_60, Runtime build 1.8.0_60-b27.
-**Report type**: Bug.
-**Reproducibility**: Yes – consistently.
-**Priority**: Low.
+**Title**: Unchecked NumberFormatException.  
+**Reported by**: Skyler Layne.  
+**Date Reported**: February 28, 2016.  
+**Program name**: BORG Calendar.  
+**Configuration**: OS X 10.11.3, Java version 1.8.0_60, Runtime build 1.8.0_60-b27.  
+**Report type**: Bug.  
+**Reproducibility**: Yes – consistently.  
+**Priority**: Low.  
 **Problem Summary**:
 
 Unit testing surfaced an uncaught error in String to Integer conversion.
