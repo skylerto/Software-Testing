@@ -1,6 +1,5 @@
 # Appendix A
 ## Bug Report #1
-
 **Title**: Integer Overflow in `calculateRepeatNumber`.  
 **Reported by**: Siraj Rauff.  
 **Date Reported**: February 28, 2016.  
@@ -34,7 +33,6 @@ assertEquals(greaterThan(Integer.MAX_VALUE), Repeat.calculateRepeatNumber(testCa
 **New or old bug**: old.
 
 ## Bug Report #2
-
 **Title**: Unchecked `NullPointerException` in `calculateRepeatNumber`.  
 **Reported by**: Siraj Rauff.  
 **Date Reported**: February 28, 2016.  
@@ -58,12 +56,11 @@ assertEquals(0, Repeat.calculateRepeatNumber(testCal, testAppt));
 **New or old bug**: old.
 
 ## Bug Report #3
-
 **Title**: Unchecked NumberFormatException.  
 **Reported by**: Skyler Layne.  
 **Date Reported**: February 28, 2016.  
 **Program name**: BORG Calendar.  
-**Configuration**: OS X 10.11.3, Java version 1.8.0_60, Runtime build 1.8.0_60-b27.  
+**Configuration**: OS X 10.11.3, Java version 1.8.0_60, Runtime 1.8.0_60-b27.  
 **Report type**: Bug.  
 **Reproducibility**: Yes – consistently.  
 **Priority**: Low.  
@@ -71,10 +68,7 @@ assertEquals(0, Repeat.calculateRepeatNumber(testCal, testAppt));
 
 Unit testing surfaced an uncaught error in String to Integer conversion.
 
-When setting a repeat event, if the String code passed in takes space, or if it is not an integer, then an uncaught/unhandled error occurs `NumberFormatException` error occurs.
-
-Example inputs:
-
+When setting a repeat event, if the String code passed in takes space, or if it is not an integer, then an uncaught/unhandled error occurs `NumberFormatException` error occurs. Example inputs:  
 ``` java
 Repeat.getNValue("nweeks, ");
 Repeat.getNValue("nweeks, 14");

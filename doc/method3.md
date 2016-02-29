@@ -53,3 +53,5 @@ Using the following strategy we attempt to cover some of the missing gaps, and r
 In the following decision table we show the desired behaviour of the system; under the condition what the desired action should be (See Appendix A for the JUnit test cases for this strategy).
 
 ![Decision Table](../assets/decision-table.png)
+
+\newpage
