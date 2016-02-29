@@ -22,12 +22,13 @@ This section of the method does not, however, check for integer overflow. This m
 
 This can be reproduced with the following:
 ``` java
-Calendar testCal = new GregorianCalendar(0,0,2,0,0);
+Calendar testCal = new GregorianCalendar(0,0,1,0,0);
 Appointment testAppt = new Appointment();
 testAppt.setFrequency("DAILY");
 testAppt.setDate(testCal.getTime());
 
 testCal.add(Calendar.DAY_OF_MONTH, Integer.MAX_VALUE);
+testCal.add(Calendar.DAY_OF_MONTH, 1);
 assertEquals(greaterThan(Integer.MAX_VALUE), Repeat.calculateRepeatNumber(testCal, testAppt));
 ```
 **New or old bug**: old.
@@ -45,11 +46,11 @@ assertEquals(greaterThan(Integer.MAX_VALUE), Repeat.calculateRepeatNumber(testCa
 **Problem Summary**:  
 `calculateRepeatNumber` in `Repeat.java` does not check if the `Appointment` contains a valid start date before using it.  
 **Problem Description**:  
-`calculateRepeatNumber` utilizes `Appointment` parameter to get the start date and repeat frequency of an event. It does not, however, check if either of these exist. A `null` frequency is correctly handled in the creation of a repeating event, however a `null` start date will cause a `NullPointerException`.
+`calculateRepeatNumber` utilizes an `Appointment` parameter to get the start date and repeat frequency of an event. It does not, however, check if either of these exist. A `null` frequency is correctly handled in the creation of a repeating event, however a `null` start date will cause a `NullPointerException`.
 
 This can be reproduced with the following:
 ``` java
-Calendar testCal = new GregorianCalendar(0,0,2,0,0);
+Calendar testCal = new GregorianCalendar(0,0,1,0,0);
 Appointment testAppt = new Appointment();
 
 assertEquals(0, Repeat.calculateRepeatNumber(testCal, testAppt));
