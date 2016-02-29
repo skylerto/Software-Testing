@@ -1,0 +1,1 @@
+pandoc ../doc/title_page.md ../doc/method1.md ../doc/method2.md ../doc/method3.md ../doc/bug_reports.md ../doc/source_code.md --latex-engine=xelatex -o ../a2.pdf
