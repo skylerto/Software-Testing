@@ -12,7 +12,7 @@ The term work (assignments) given, all have to do with different aspects of test
 
 ## Bug Reports
 
-The purpose of this assignment is to give us experience reporting bugs and developing test cases. This task will give you practice thinking how to develop a test case from a requirements document, what a professional bug report should be, as well as analyzing bugs before reporting them. The entire requirements document, [CSE4313_Assignment1Description.pdf](bug-reports/docs/CSE4313_Assignment1Description.pdf), and our bug reports [a1.pdf](bug-reports/docs/a1.pdf).
+The purpose of this assignment is to give us experience reporting bugs and developing test cases. This task will give you practice thinking how to develop a test case from a requirements document, what a professional bug report should be, as well as analyzing bugs before reporting them. The entire requirements document, [CSE4313_Assignment1Description.pdf](bug-reports/docs/CSE4313_Assignment1Description.pdf), and our [bug reports](bug-reports/docs/Report.pdf).
 
 ### Team Members
 - [Siraj Rauff](https://www.github.com/sirajrauff)  
@@ -20,7 +20,7 @@ The purpose of this assignment is to give us experience reporting bugs and devel
 
 ## Black Box Testing
 
-The purpose of this assignment is to give us experience in applying the functional testing techniques we discussed in class, as well as creating automated test code with JUnit. Your task will be to create a test suite in JUnit for a system of your choice, produce bug reports (if any), and submit a written report describing your testing. The entire requirements document, [CSE4313_Assignment2Description.pdf](black-box/docs/CSE4313_Assignment2Description.pdf), and our bug reports [a1.pdf](black-box/docs/Report.pdf).
+The purpose of this assignment is to give us experience in applying the functional testing techniques we discussed in class, as well as creating automated test code with JUnit. Your task will be to create a test suite in JUnit for a system of your choice, produce bug reports (if any), and submit a written report describing your testing. The entire requirements document, [CSE4313_Assignment2Description.pdf](black-box/docs/CSE4313_Assignment2Description.pdf), and our black-box testing [report](black-box/docs/Report.pdf).
 
 ### Team Members
 - [Siraj Rauff](https://www.github.com/sirajrauff)  
@@ -29,7 +29,7 @@ The purpose of this assignment is to give us experience in applying the function
 
 ## White Box Testing
 
-The purpose of this assignment is to give you experience applying path testing approaches and measuring coverage. Your task will be to create a test suite in JUnit, produce bug reports (if any), and submit a written report describing your testing. The entire requirements document, [CSE4313_Assignment3Description.pdf](white-box/docs/CSE4313_Assignment3Description.pdf), and our bug reports [a1.pdf](white-box/docs/Report.pdf).
+The purpose of this assignment is to give you experience applying path testing approaches and measuring coverage. Your task will be to create a test suite in JUnit, produce bug reports (if any), and submit a written report describing your testing. The entire requirements document, [CSE4313_Assignment3Description.pdf](white-box/docs/CSE4313_Assignment3Description.pdf), and our white-box testing [report](white-box/docs/Report.pdf).
 
 ### Team Members
 - [Siraj Rauff](https://www.github.com/sirajrauff)  
