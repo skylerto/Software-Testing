@@ -31,6 +31,12 @@ The purpose of this assignment is to give us experience in applying the function
 
 The purpose of this assignment is to give you experience applying path testing approaches and measuring coverage. Your task will be to create a test suite in JUnit, produce bug reports (if any), and submit a written report describing your testing. The entire requirements document, [CSE4313_Assignment3Description.pdf](white-box/docs/CSE4313_Assignment3Description.pdf), and our bug reports [a1.pdf](white-box/docs/Report.pdf).
 
+### Team Members
+- [Siraj Rauff](https://www.github.com/sirajrauff)  
+- [Drew Noel](https://www.github.com/drewmnoel)  
+- [Skyler Layne](https://www.github.com/skylerto)  
+
+
 # License
 
 Belongs to the writers.
