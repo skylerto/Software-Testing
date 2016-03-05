@@ -1,13 +1,12 @@
 package software.testing;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import org.hamcrest.core.IsInstanceOf;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -127,12 +126,8 @@ public class RepeatTest {
 		assertEquals(Repeat.getNValue("THISORANGEJUICETASTESLIKECOFFEE"), 0);
 
 		// 3. A desirable String.
-		try {
-			assertEquals(Repeat.getNValue("nweeks"), 0);
-			fail("Should throw index out of bounds exception");
-		} catch (StringIndexOutOfBoundsException e) {
-			assertThat(e.getMessage(), is("String index out of range: -1"));
-		}
+		assertEquals(Repeat.getNValue("nweeks"), 0);
+		thrown.expect(NumberFormatException.class);
 
 		// 4. Without a comma separator.
 		assertEquals(Repeat.getNValue("nweeks 5"), 5);
@@ -216,15 +211,7 @@ public class RepeatTest {
 		number = "5";
 		constant = Repeat.NYEARS;
 
-		assertEquals(Repeat.getNValue(constant + "," + number), 5);
-		//
-		// thrown.expect(NumberFormatException.class);
-		// try {
-		//
-		// fail("Expected an NumberFormatException to be thrown");
-		// } catch (NumberFormatException e) {
-		// assertThat(e.getClass(), NumberFormatException.class);
-		// }
+		assertEquals(Repeat.getNValue(constant + "," + number), 0);
 
 		// B. Non Constant, Non Numeric.
 		number = "notanumber";
@@ -234,40 +221,22 @@ public class RepeatTest {
 		// D. NDAYS, Empty String.
 		number = "";
 		constant = Repeat.NDAYS;
-		try {
-			assertEquals(Repeat.getNValue(constant + "," + number), 0);
-		} catch (NumberFormatException e) {
-			assertThat(e.getMessage(), is("For input string: \"\""));
-		}
+		assertEquals(Repeat.getNValue(constant + "," + number), 0);
 
 		// E. NWEEKS, Non Numeric.
 		number = "notanumber";
 		constant = Repeat.NWEEKS;
-
-		try {
-			assertEquals(Repeat.getNValue(constant + "," + number), 0);
-		} catch (NumberFormatException e) {
-			assertThat(e.getMessage(), is("For input string: \"notanumber\""));
-		}
+		assertEquals(Repeat.getNValue(constant + "," + number), 0);
 
 		// G. NMONTHS, Empty String.
 		number = "";
 		constant = Repeat.NMONTHS;
-		try {
-			assertEquals(Repeat.getNValue(constant + "," + number), 0);
-		} catch (NumberFormatException e) {
-			assertThat(e.getMessage(), is("For input string: \"\""));
-		}
+		assertEquals(Repeat.getNValue(constant + "," + number), 0);
 
 		// H. NYEARS, Non Numeric String.
 		number = "notanumber";
 		constant = Repeat.NYEARS;
-
-		try {
-			assertEquals(Repeat.getNValue(constant + "," + number), 0);
-		} catch (NumberFormatException e) {
-			assertThat(e.getMessage(), is("For input string: \"notanumber\""));
-		}
+		assertEquals(Repeat.getNValue(constant + "," + number), 0);
 
 		/*
 		 * 4. Strong Robust Test Cases
@@ -308,55 +277,40 @@ public class RepeatTest {
 		// H. NDAYS, Non Numeric String.
 		number = "notanumber";
 		constant = Repeat.NDAYS;
-		try {
-			assertEquals(Repeat.getNValue(constant + "," + number), 0);
-		} catch (NumberFormatException e) {
-			assertThat(e.getMessage(), is("For input string: \"notanumber\""));
-		}
+		assertEquals(Repeat.getNValue(constant + "," + number), 0);
 
 		// J. NWEEKS, Empty Number String.
 		number = "";
 		constant = Repeat.NWEEKS;
-		try {
-			assertEquals(Repeat.getNValue(constant + "," + number), 0);
-		} catch (NumberFormatException e) {
-			assertThat(e.getMessage(), is("For input string: \"\""));
-		}
+		assertEquals(Repeat.getNValue(constant + "," + number), 0);
 
 		// N. NMONTHS, Non Numeric String.
 		number = "notanumber";
 		constant = Repeat.NMONTHS;
-		try {
-			assertEquals(Repeat.getNValue(constant + "," + number), 0);
-		} catch (NumberFormatException e) {
-			assertThat(e.getMessage(), is("For input string: \"notanumber\""));
-		}
+		assertEquals(Repeat.getNValue(constant + "," + number), 0);
 
 		// P. NYEARS, Empty Number String.
 		number = "";
 		constant = Repeat.NYEARS;
-		try {
-			assertEquals(Repeat.getNValue(constant + "," + number), 0);
-		} catch (NumberFormatException e) {
-			assertThat(e.getMessage(), is("For input string: \"\""));
-		}
+		assertEquals(Repeat.getNValue(constant + "," + number), 0);
 
 	}
 
 	/**
 	 * Test case to represent the Decision Table Tests.
-	 * 
-	 * Conditions: C1. Input empty. C2. Input does not contain a valid constant
-	 * or valid number. C3. Input contains a valid number but not a valid
-	 * constant. C4. Input contains a constant but no number of occurrences. C5.
-	 * Input contains a valid constant and valid number.
-	 *
-	 * Actions: A1. Return 0 A2. The extracted number
-	 *
-	 * C1 -> A1. C2 -> A1. C3 -> A1. C4 -> A1. C5 -> A2.
 	 */
 	@Test
 	public void testGetNValueDT() {
+		/*
+		 * Conditions: C1. Input empty. C2. Input does not contain a valid
+		 * constant or valid number. C3. Input contains a valid number but not a
+		 * valid constant. C4. Input contains a constant but no number of
+		 * occurrences. C5. Input contains a valid constant and valid number.
+		 *
+		 * Actions: A1. Return 0 A2. The extracted number
+		 *
+		 * C1 -> A1. C2 -> A1. C3 -> A1. C4 -> A1. C5 -> A2.
+		 */
 
 		// C1 -> A1.
 		assertEquals(Repeat.getNValue(""), 0);
