@@ -1,5 +1,5 @@
 # EECS 4313: Assignment 3  
-Monday, 16 March 16
+Wednesday, 16 March 16
 
 ## Team Members  
 
