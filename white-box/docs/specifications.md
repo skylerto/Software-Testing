@@ -1,4 +1,4 @@
-# Appendix A
+# 6. Appendix A
 
 This appendix contains each of our method specifications from Assignment 2.
 
