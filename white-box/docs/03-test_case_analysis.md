@@ -24,7 +24,7 @@ This test case checks for when a `null` string has been passed in. Upon inspecti
 @Test
 public void testGetNValueNull() {
   String repeat = null;
-  assertEquals(Repeat.getNValue(repeat), 0);
+  assertEquals(0, Repeat.getNValue(repeat));
 }
 ```
 
@@ -34,6 +34,6 @@ However odd, this test was written after the inspection of the code and coverage
 @Test
 public void testGetNValueMultiple() {
   String f = Repeat.NDAYS + ",1," + Repeat.NDAYS;
-  assertEquals(Repeat.getNValue(f), 1);
+  assertEquals(1, Repeat.getNValue(f));
 }
 ```

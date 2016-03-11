@@ -20,20 +20,20 @@ As all of these test cases are based on branching, when running the coverage rep
 @Test
 public void testGetNValueNull() {
 	String repeat = null;
-	assertEquals(Repeat.getNValue(repeat), 0);
+	assertEquals(0, Repeat.getNValue(repeat));
 }
 
 ```
 
 ``` java
 // Test Constant as input
-assertEquals(Repeat.getNValue("notavalidconstant" + "," + "5"), 0);
+assertEquals(0, Repeat.getNValue("notavalidconstant" + "," + "5"));
 
 ```
 
 ``` java
 // Test contains only 1 constant and 1 multiplier
-assertEquals(Repeat.getNValue(Repeat.NDAYS + "," + "5"), 5);
+assertEquals(5, Repeat.getNValue(Repeat.NDAYS + "," + "5"));
 ```
 
 ``` java
@@ -43,6 +43,6 @@ assertEquals(Repeat.getNValue(Repeat.NDAYS + "," + "5"), 5);
 @Test
 public void testGetNValueMultiple() {
 	String f = Repeat.NDAYS + ",1," + Repeat.NDAYS;
-	assertEquals(Repeat.getNValue(f), 1);
+	assertEquals(1, Repeat.getNValue(f));
 }
 ```
