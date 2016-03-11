@@ -16,7 +16,23 @@ The method under test, `getNValue` exists within `Repeat.java` in the `net.sf.bo
 static public int getNValue(String f);
 ```
 
-The coverage metrics before looking into the code (black-box tests) can be seen in the coverage portion, with coverage percent 79.2%. When expanding the code, 2 additional test cases were added. One to check a `null` input, and another to check for repeated input.
+The coverage metrics before looking into the code (black-box tests) can be seen in the coverage portion, with coverage percent 79.2%. When expanding the code, 2 additional test cases were added. One to check a `null` input, and another to check for repeated input. The additional test cases are required in order to test these conditional lines from `Repeat.java`:
+
+``` java
+static public int getNValue(String f) {
+	if (f == null)
+		return 0;
+
+	...
+
+	int i2 = f.indexOf(',', freq.length() + 1);
+	if (i2 != -1)
+		return (Integer.parseInt(f.substring(freq.length() + 1, i2)));
+
+	...
+
+}
+```
 
 This test case checks for when a `null` string has been passed in. Upon inspection of the code and coverage metrics, it was determined that this branch was not tested for in the black-box testing. When looking into the code, it became clear that a null string should return a 0 value multiplier.  
 
