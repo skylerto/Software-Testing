@@ -1,8 +1,10 @@
-package net.sf.borg.common;
+package eecs4313a2;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import net.sf.borg.common.EncryptionHelper;
 
 public class ValidKeystoreWorstCaseBVTest {
 	protected static EncryptionHelper eh;

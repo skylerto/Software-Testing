@@ -1,4 +1,4 @@
-package net.sf.borg.model;
+package eecs4313a2;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;

@@ -1,4 +1,4 @@
-package net.sf.borg.common;
+package eecs4313a2;
 
 import java.security.InvalidKeyException;
 
@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import net.sf.borg.common.EncryptionHelper;
 /**
  * Test cases to test invalid key being used in EncryptionHelper's encrypt(...)
  *
