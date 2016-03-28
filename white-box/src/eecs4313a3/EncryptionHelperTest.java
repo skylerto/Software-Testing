@@ -1,4 +1,4 @@
-package software.testing;
+package eecs4313a3;
 
 
 import org.junit.runner.RunWith;

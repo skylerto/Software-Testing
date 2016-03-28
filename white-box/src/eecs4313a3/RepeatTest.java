@@ -1,4 +1,4 @@
-package software.testing;
+package eecs4313a3;
 
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertEquals;
