@@ -4,40 +4,34 @@
 
 The Data Flow Diagram below shows the segments labelled by the type of node.
 
-\begin{figure} 
-\includegraphics{./assets/data-flow-diagram.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./assets/data-flow-diagram.png} 
 \caption{getNValue(String f) Data Flow Diagram} 
-\label{Data Flow Diagram} 
+\label{df-diagram} 
 \end{figure} 
-
-
-\newpage
 
 ## Program Segmented
 
 The same program has been broken up into corresponding segments basked on the
 data flow diagram above.
 
-\being{figure}
-\includegraphics{./assets/program-segmented.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./assets/program-segmented.png} 
 \caption{getNValue(String f) Segmented} 
-\label{Program Segmented} 
+\label{Program Segmented Diagram} 
 \end{figure}
-
-\newpage
 
 ## Program Graph
 
 The following figure shows the program graph for the segmented code segment
 above.
 
-\being{figure}
-\includegraphics{./assets/program-graph.png} 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{./assets/program-graph.png} 
 \caption{getNValue(String f) Graph} 
-\label{Program Segmented} 
+\label{pg-diagram} 
 \end{figure}
-
-\newpage
 
 ## Data Flow Paths
 
@@ -52,13 +46,13 @@ The following graphs satisfy the All definitions criteria:
 Each definition of each variable for at least one use of the definition: 
 ```
 
-\being{figure}
-\includegraphics{./assets/all-defs.png} 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{./assets/all-defs.png} 
 \caption{All Definitions (ABDEG)} 
-\label{Program Segmented} 
+\label{all-def} 
 \end{figure}
 
-\newpage
 
 ### All-Uses
 
@@ -68,13 +62,12 @@ The following graphs satisfy the All uses criteria:
 At least one path of each variable to each c-use of the definition: 
 ```
 
-\being{figure}
-\includegraphics{./assets/all-uses.png} 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{./assets/all-uses.png} 
 \caption{All Uses (ABDEGH)} 
-\label{Program Segmented} 
+\label{all-use} 
 \end{figure}
-
-\newpage
 
 ### All P Uses and Some C Uses
 
@@ -85,13 +78,13 @@ At least one path of each variable definition to each p-use of the variable.
 If any variable definitions are not covered by p-use, then use c-use: 
 ```
 
-\being{figure}
-\includegraphics{./assets/all-p-some-c.png} 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{./assets/all-p-some-c.png} 
 \caption{All P uses, Some C uses (ABDEGHI)} 
-\label{Program Segmented} 
+\label{all-p-some-c} 
 \end{figure}
 
-\newpage
 
 ### All C Uses and Some P Uses
 
@@ -102,19 +95,19 @@ At least one path of each variable definition to each c-use of the variable.
 If any variable definitions are not covered, use p-use: 
 ```
 
-\being{figure}
-\includegraphics{./assets/all-c-some-p-1.png} 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{./assets/all-c-some-p-1.png} 
 \caption{All C uses, Some P uses (ABDEGHI)} 
-\label{Program Segmented} 
+\label{all-c-some-p-1} 
 \end{figure}
 
-\newpage
 
-
-\being{figure}
-\includegraphics{./assets/all-c-some-p-2.png} 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{./assets/all-c-some-p-2.png} 
 \caption{All C uses, Some P uses (ABDEGHJ)} 
-\label{Program Segmented} 
+\label{all-c-some-p-2} 
 \end{figure}
 
 \newpage
