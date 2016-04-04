@@ -37,6 +37,19 @@ The purpose of this assignment is to give you experience applying path testing a
 - [Skyler Layne](https://www.github.com/skylerto)  
 
 
+## Assignment 4 (a4)
+
+The purpose of this assignment is to give you experience applying data flow
+testing, slice-based testing and mutation testing approaches. Your task will be
+to create a test suite in JUnit, produce bug reports (if any), and submit a
+written report describing your testing.
+
+### Team Members
+- [Siraj Rauff](https://www.github.com/sirajrauff)  
+- [Drew Noel](https://www.github.com/drewmnoel)  
+- [Skyler Layne](https://www.github.com/skylerto)  
+
+
 # License
 
 Belongs to the writers.
