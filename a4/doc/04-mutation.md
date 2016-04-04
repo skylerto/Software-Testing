@@ -26,3 +26,47 @@ This overview is not particularly useful since there are many unrelated methods 
 \end{figure}
 
 Since A2 was a black-box testing exercise, several of these are expected. For example, it was not clear from the documentation that `getNValue(...)` should behave differently if there were 2 commas in the input string (lines 325-337). Other mutation failures, such as ones in `calculateRepeatNumber(...)` indicate that the original testing was too minimal; some of those mutations are more trivial (lines 444, 451-452).
+
+### `Repeat.java` Test Repair
+
+In order to repair the missing mutation handling, four new tests were written:
+
+1. Test to ensure that `calculateRepeatNumber(...)` sets the dates correctly (kills lines 444) by testing that on two separate days, the repeat number is different.
+2. Test to ensure that `calculateRepeatNumber(...)` loop calculates the repeat number as expected, by creating a more detailed typical use-case test.
+3. Test to ensure that `getNValue(...)` returns 0 when passed in a `null`.
+4. Test to ensure that `getNValue(...)` returns the number between two commas.
+
+The updated source code has been submitted in the submit package. The updated coverage results are below:
+
+\begin{figure}[H]
+\includegraphics[width=0.5\textwidth]{./assets/PIT/A2RepeatOverviewAfter.png}
+\caption{net.sf.borg.model.Repeat Updated}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./assets/PIT/A2getNValueSpecificFixed.png}
+\caption{net.sf.borg.model.Repeat getNValue(...) Updated}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./assets/PIT/A2calcRepeatSpecificFixed.png}
+\caption{net.sf.borg.model.Repeat calculateRepeatNumber(...) Updated}
+\end{figure}
+
+### `EncryptionHelper` Test Analysis
+
+After restricting the tests to show the class and test results of only the written tests, the following overview was produced:
+
+\begin{figure}[H]
+\includegraphics[width=0.5\textwidth]{./assets/PIT/A2EncryptionTestOverview.png}
+\caption{net.sf.borg.common}
+\end{figure}
+
+There is only one method under test in this class, `encrypt(...)`. It passed all of the mutation tests with no modifications, as seen here:
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./assets/PIT/A2EncryptionTestSpecific.png}
+\caption{net.sf.borg.common encryption(...)}
+\end{figure}
+
+This is likely because there were many tests written for this method, yet this method just communicates with built-in Java methods. Since the original tests correctly killed all the mutants, the test source code was not modified.
