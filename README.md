@@ -1,6 +1,9 @@
 Software Testing Assignments
 ============================
 
+To view lecture notes for this course, please consult the
+[wiki](https://github.com/skylerto/Software-Testing/wiki).
+
 This course gives an introduction to systematic methods of testing and verification,
 covering a range of static and dynamic techniques and their use within the development
 process. The course emphasizes the view that design should be carried out with
