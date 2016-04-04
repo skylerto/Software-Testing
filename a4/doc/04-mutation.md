@@ -95,3 +95,5 @@ Note that this is actually 1 fewer mutant kill than in the Assignment 2 analysis
 \end{figure}
 
 The original tests from Assignment 2 killed all the mutants successfully, and so did not require any modifications. Additionally, the `EncryptionHelper` tests were not changed between Assignment 2 and Assignment 3, and so they still kill all their mutants as well. Therefore, all tests written and submitted as part of Assignment 3 killed all the mutants created by PIT. No code modifications were made for A4.
+
+\newpage
