@@ -1,6 +1,6 @@
 package eecs4313a3;
 
-import static org.hamcrest.Matchers.greaterThan;
+import org.hamcrest.Matchers;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Calendar;
@@ -345,11 +345,11 @@ public class RepeatTest {
 
 		// 5. Integer.MAX_VALUE days in the future
 		overMaxDays.add(Calendar.DAY_OF_MONTH, 1);
-		assertEquals(greaterThan(Integer.MAX_VALUE), Repeat.calculateRepeatNumber(overMaxDays, sampleAppt));
+		assertEquals(Matchers.greaterThan(Integer.MAX_VALUE), Repeat.calculateRepeatNumber(overMaxDays, sampleAppt));
 
 		// 6. Integer.MAX_VALUE days in the future
 		overMaxDays.add(Calendar.DAY_OF_MONTH, 1);
-		assertEquals(greaterThan(Integer.MAX_VALUE), Repeat.calculateRepeatNumber(overMaxDays, sampleAppt));
+		assertEquals(Matchers.greaterThan(Integer.MAX_VALUE), Repeat.calculateRepeatNumber(overMaxDays, sampleAppt));
 
 		// 7. Integer.MIN_VALUE + 1 days in the past
 		Calendar underMaxDays = sameDay;
