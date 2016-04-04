@@ -2,11 +2,11 @@
 
 ## Assignment 2 Review
 
-The mutation testing was limited to only tests written by this group, with all other tests forcibly removed. The testing was next limited to mutate only the class which contained the method being tested. As discussed in A2, some tests uncovered potential bugs in the BORGCalendar. PIT requires that all tests pass in order to run, so these tests were temporarily removed.
+The mutation testing was limited to only tests written by this group, with all other tests forcibly removed. The testing was next limited to mutate only the class which contained the method being tested. As discussed in Assignment 2, some tests uncovered potential bugs in the BORGCalendar. PIT requires that all tests pass in order to run, so these tests were temporarily removed.
 
 ### `Repeat.java` Test Analysis
 
-Two of the three methods tested belong to `net.sf.borg.model.Repeat`. The following is the overview of the class using only the tests submitted for A2:
+Two of the three methods tested belong to `net.sf.borg.model.Repeat`. The following is the overview of the class using only the tests submitted for Assignment 2:
 
 \begin{figure}[H]
 \includegraphics[width=0.5\textwidth]{./assets/PIT/A2RepeatOverviewBefore.png}
@@ -25,7 +25,7 @@ This overview is not particularly useful since there are many unrelated methods 
 \caption{net.sf.borg.model.Repeat calculateRepeatNumber(...)}
 \end{figure}
 
-Since A2 was a black-box testing exercise, several of these are expected. For example, it was not clear from the documentation that `getNValue(...)` should behave differently if there were 2 commas in the input string (lines 325-337). Other mutation failures, such as ones in `calculateRepeatNumber(...)` indicate that the original testing was too minimal; some of those mutations are more trivial (lines 444, 451-452).
+Since Assignment 2 was a black-box testing exercise, several of these are expected. For example, it was not clear from the documentation that `getNValue(...)` should behave differently if there were 2 commas in the input string (lines 325-337). Other mutation failures, such as ones in `calculateRepeatNumber(...)` indicate that the original testing was too minimal; some of those mutations are more trivial (lines 444, 451-452).
 
 ### `Repeat.java` Test Repair
 
@@ -82,7 +82,7 @@ After being permitted to view the source code, the tests written for `net.sf.bor
 \caption{net.sf.borg.model.Repeat}
 \end{figure}
 
-Note that this is actually 1 fewer mutant kill than in the A2 analysis after adding tests. Viewing the detailed information confirmed this finding.
+Note that this is actually 1 fewer mutant kill than in the Assignment 2 analysis after adding tests. Viewing the detailed information confirmed this finding.
 
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{./assets/PIT/A3getNValueSpecific.png}
@@ -94,4 +94,4 @@ Note that this is actually 1 fewer mutant kill than in the A2 analysis after add
 \caption{net.sf.borg.model.Repeat calculateRepeatNumber(...)}
 \end{figure}
 
-The original tests from A2 killed all the mutants successfully, and so did not require any modifications. Additionally, the `EncryptionHelper` tests were not changed between A2 and A3, and so they still kill all their mutants as well. Therefore, all tests written and submitted as part of A3 killed all the mutants created by PIT. No code modifications were made for A4.
+The original tests from Assignment 2 killed all the mutants successfully, and so did not require any modifications. Additionally, the `EncryptionHelper` tests were not changed between Assignment 2 and Assignment 3, and so they still kill all their mutants as well. Therefore, all tests written and submitted as part of Assignment 3 killed all the mutants created by PIT. No code modifications were made for A4.
