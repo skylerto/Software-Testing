@@ -70,3 +70,28 @@ There is only one method under test in this class, `encrypt(...)`. It passed all
 \end{figure}
 
 This is likely because there were many tests written for this method, yet this method just communicates with built-in Java methods. Since the original tests correctly killed all the mutants, the test source code was not modified.
+
+## Assignment 3 Review
+
+### `Repeat.java` Test Analysis
+
+After being permitted to view the source code, the tests written for `net.sf.borg.model.Repeat` significantly improved in quality. The overview:
+
+\begin{figure}[H]
+\includegraphics[width=0.5\textwidth]{./assets/PIT/A3RepeatOverviewBefore.png}
+\caption{net.sf.borg.model.Repeat}
+\end{figure}
+
+Note that this is actually 1 fewer mutant kill than in the A2 analysis after adding tests. Viewing the detailed information confirmed this finding.
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./assets/PIT/A3getNValueSpecific.png}
+\caption{net.sf.borg.model.Repeat getNValue(...)}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{./assets/PIT/A3calcRepeatSpecific.png}
+\caption{net.sf.borg.model.Repeat calculateRepeatNumber(...)}
+\end{figure}
+
+The original tests from A2 killed all the mutants successfully, and so did not require any modifications. Additionally, the `EncryptionHelper` tests were not changed between A2 and A3, and so they still kill all their mutants as well. Therefore, all tests written and submitted as part of A3 killed all the mutants created by PIT. No code modifications were made for A4.
