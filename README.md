@@ -55,4 +55,5 @@ written report describing your testing.
 
 # License
 
-Belongs to the writers.
+Belongs to the writers. The course materials in the wiki as well as the
+assignment descriptions are property of [Zhen Ming (Jack) Jiang](http://www.cse.yorku.ca/~zmjiang/).
