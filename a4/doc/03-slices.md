@@ -29,11 +29,13 @@ static public int getNValue(String f) {
 }
 ```
 
-For this particular investigation we will statically and dynamically slice all A-defs and P-uses. **NOTE** For the duration of this section we will omit code comments and the method's declaration and outermost brackets for the brevity's sake.
+For this particular investigation we will statically and dynamically slice all A-defs and P-uses. **NOTE:** For the duration of this section we will omit code comments and the method's declaration and outermost brackets for the brevity's sake.
 
 ## A-defs
 
-A-defs, or assignment definitions are variable definitions created through assignments (e.g. `variable = value`). Within the `getNValue` method we find two assignment definitions, one for `String freq`.
+A-defs, or assignment definitions are variable definitions created through assignments (e.g. `variable = value`). Within the `getNValue` method we find two assignment definitions, one for `String freq`, and one for `int i2`.
+
+**NOTE:** For each of the following dynamic slices as well as forward slices, we slice to the end of the method. For backwards-slices we slice from the assignment to the beginning of the method.
 
 ### String Freq
 
@@ -42,9 +44,10 @@ We will begin by statically and dynamically slicing `String Freq`, which is defi
 ```java
 String freq = Repeat.getFreq(f);
 ```
+
 #### Static Slicing
 
-Forward slicing on `String freq` is straight-forward and results in the following slice:
+Forward slicing on the assignment to the end of the method is straight forward and results in the following slice:
 
 ```java
 String freq = Repeat.getFreq(f);
@@ -59,7 +62,7 @@ if (i2 != -1)
 return (Integer.parseInt(f.substring(freq.length() + 1)));
 ```
 
-Backward-slicing on the same assignment results in a much smaller slice:
+Backward-slicing on the same assignment to the beginning of the method results in the following slice:
 
 ```java
 if (f == null)
@@ -69,25 +72,29 @@ String freq = Repeat.getFreq(f);
 ```
 
 #### Dynamic Slicing
-Dynamically slicing on `String freq`, we see three possibilities for the input. The input String `f` is `null`, or it is not. This second case can then be divided further; if the value of `f` is such that the result of the assignment is not one of `NDAYS, NWEEKS, NMONTHS` or `NYEARS` we see that the method will return `0`, otherwise, it will attempt to parse the string for an integer following this expression. See below for the respective Dynamic Slices:
+Dynamically slicing on the assignment of `String freq`, we see three possibilities for the input.
 
+* `f` is null
+* `f` is not null AND `freq` is one of `NDAYS`, `NWEEKS`, `NMONTHS` or `NYEARS`
+* `f` is not null AND `freq` is not one of `NDAYS`, `NWEEKS`, `NMONTHS` or `NYEARS`
 
-Dynamic slicing on `f` equal to `null`
+If `f` is null or it is such that `freq` is not one of `NDAYS, NWEEKS, NMONTHS` or `NYEARS` we see that the method will return `0`, otherwise, it will attempt to parse the string for an integer following this expression. See below for the respective Dynamic Slices:
+
+Dynamic slicing on `f` equal to `null`:
 
 ```java
 return 0;
 ```
 
-Dynamically slicing on `f` such that `Repeat.getFreq(f)` not equal to any of `NDAYS`, `NWEEKS`, `NMONTHS`, `NYEARS`
+Dynamically slicing on `f` such that `Repeat.getFreq(f)` not equal to any of `NDAYS`, `NWEEKS`, `NMONTHS`, `NYEARS` results in the following slice:
 
 ```java
-String freq = Repeat.getFreq(f);
-
-if (!freq.equals(NDAYS) && !freq.equals(NWEEKS) && !freq.equals(NMONTHS) && !freq.equals(NYEARS))
-  return (0);
+return (0);
 ```
 
-Dynamically slicing on `f` such that `Repeat.getFreq(f)` equal to one of `NDAYS`, `NWEEKS`, `NMONTHS` or `NYEARS`
+Note that this is equivalent to the first slice, as the value of `freq` will result in the if statement collapsing to the resulting `return` statement.
+
+Dynamically slicing on `f` such that `Repeat.getFreq(f)` equal to one of `NDAYS`, `NWEEKS`, `NMONTHS` or `NYEARS`:
 
 ```java
 String freq = Repeat.getFreq(f);
@@ -118,7 +125,47 @@ if (i2 != -1)
 
 return (Integer.parseInt(f.substring(freq.length() + 1)));
 ```
+
+Backward slicing on the same variable results in the following slice:
+
+```java
+if (f == null)
+  return 0;
+
+String freq = Repeat.getFreq(f);
+
+if (!freq.equals(NDAYS) && !freq.equals(NWEEKS) && !freq.equals(NMONTHS) && !freq.equals(NYEARS))
+  return (0);
+
+int i2 = f.indexOf(',', freq.length() + 1);
+```
 #### Dynamic Slicing
+
+Dynamically slicing on the same variable, we see that the first few cases we consider are equivalent to dynamically slicing `String freq`. We do, however further divide the case where `freq` is not one of `NDAYS`, `NWEEKS`, `NMONTHS` or `NYEARS` to if `f` contains a comma or it does not. We divide it such that the cases are:
+
+* `f` is null
+* `f` is not null AND `freq` is one of `NDAYS`, `NWEEKS`, `NMONTHS` or `NYEARS`
+* `f` is not null AND `freq` is not one of `NDAYS`, `NWEEKS`, `NMONTHS` or `NYEARS` and `f` contains a comma
+* `f` is not null AND `freq` is not one of `NDAYS`, `NWEEKS`, `NMONTHS` or `NYEARS` and `f` does not contain a comma
+
+We omit the first two cases, as the slices are the same as in the `String freq` dynamic slicing section above.
+
+Dynamically slicing on `f` such that `Repeat.getFreq(f)` equal to one of `NDAYS`, `NWEEKS`, `NMONTHS` or `NYEARS`, and `f` contains a comma:
+
+```java
+String freq = Repeat.getFreq(f);
+
+int i2 = f.indexOf(',', freq.length() + 1);
+return (Integer.parseInt(f.substring(freq.length() + 1, i2)));
+```
+
+Dynamically slicing on `f` such that `Repeat.getFreq(f)` equal to one of `NDAYS`, `NWEEKS`, `NMONTHS` or `NYEARS`, and `f` does not contain a comma:
+
+```java
+String freq = Repeat.getFreq(f);
+
+return (Integer.parseInt(f.substring(freq.length() + 1)));
+```
 
 ## P-uses
 
