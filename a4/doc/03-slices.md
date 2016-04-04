@@ -183,4 +183,4 @@ return (Integer.parseInt(f.substring(freq.length() + 1)));
 Note this is equivalent for S(`freq`, 13) and S(`i2`, 13).
 
 ## Code Coverage
-Our tests written prior cover 100% of all slices, no tests were added.
+Our updated tests for the previous assignment (a3) cover 100% of all slices, and as such no further tests were added.
