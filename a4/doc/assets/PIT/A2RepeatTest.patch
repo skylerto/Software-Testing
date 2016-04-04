@@ -1,0 +1,76 @@
+From 87447b323c12dd997caede2c653d81749998390d Mon Sep 17 00:00:00 2001
+From: Drew Noel <drewmnoel@gmail.com>
+Date: Sun, 3 Apr 2016 20:09:58 -0400
+Subject: [PATCH] Fix tests
+
+---
+ black-box/src/eecs4313a2/RepeatTest.java | 48 ++++++++++++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+
+diff --git a/black-box/src/eecs4313a2/RepeatTest.java b/black-box/src/eecs4313a2/RepeatTest.java
+index fc66fd4..a4ea638 100644
+--- a/black-box/src/eecs4313a2/RepeatTest.java
++++ b/black-box/src/eecs4313a2/RepeatTest.java
+@@ -40,6 +40,39 @@ public class RepeatTest {
+ 	}
+ 
+ 	/**
++	 * Ensure dates are set properly and end on time
++	 */
++	 @Test
++	public void testCalcuateRepeatNumberDatesCorrect() {
++		Calendar testCal1 = new GregorianCalendar(2016,1,1);
++		Calendar testCal2 = new GregorianCalendar(2015,5,2);
++		Appointment testAppt = new Appointment();
++		testAppt.setDate(testCal1.getTime());
++		testAppt.setFrequency(Repeat.WEEKLY);
++
++		int testCal1Freq = Repeat.calculateRepeatNumber(testCal1, testAppt);
++		int testCal2Freq = Repeat.calculateRepeatNumber(testCal2, testAppt);
++		assertNotEquals(testCal1Freq, testCal2Freq);
++	}
++
++	/**
++	 * Ensure on appointment repeat end that there's no repeats left
++	 */
++	 @Test
++	 public void testCalculateRepeatNumberMakesSense() {
++		// Create an event on Jan 1st that repeats daily
++		Calendar testCal1 = new GregorianCalendar(2016,1,1);
++		Appointment testAppt = new Appointment();
++		testAppt.setDate(testCal1.getTime());
++		testAppt.setFrequency(Repeat.DAILY);
++
++		// If we're on Jan 5th, we should be at the 5th repeat
++		Calendar testCal2 = new GregorianCalendar(2016,1,5);
++		assertEquals(5, Repeat.calculateRepeatNumber(testCal2, testAppt));
++	}
++
++
++	/**
+ 	 * Test Case to represent the Boundary Value Tests.
+ 	 */
+ 	@Test
+@@ -285,4 +318,19 @@ public class RepeatTest {
+ 			assertEquals(Repeat.getNValue(Repeat.NYEARS + "," + "5"), 5);
+ 	}
+ 
++	/**
++         * Test case to ensure a value of null gives us 0
++	 */
++	@Test
++	public void testGetNValueNull() {
++		assertEquals(0, Repeat.getNValue(null));
++	}
++
++	/**
++	 * Test case to ensure the string is parsed correctly if multiple commas
++	 */
++	@Test
++	public void testGetNValueValid() {
++		assertEquals(5, Repeat.getNValue("ndays,5,"));
++	}
+ }
+-- 
+2.8.0
+
